@@ -273,6 +273,17 @@ ifeq ($(HOSTARCH),$(ARCH))
 CROSS_COMPILE ?=
 endif
 
+# If the ACP i.MX6POS defconfig is active but the user did not provide a
+# toolchain prefix, fall back to the expected ARM cross compiler so we do not
+# accidentally invoke the host compiler for ARM sources.
+ifneq ($(wildcard $(KCONFIG_CONFIG)),)
+ifeq ($(strip $(CROSS_COMPILE)),)
+ifneq ($(shell grep -sl '^CONFIG_ACP_IMX6POS=y' $(KCONFIG_CONFIG)),)
+CROSS_COMPILE := arm-linux-gnueabihf-
+endif
+endif
+endif
+
 KCONFIG_CONFIG	?= .config
 export KCONFIG_CONFIG
 
