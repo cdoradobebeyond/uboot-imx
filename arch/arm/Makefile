@@ -48,7 +48,7 @@ tune-$(CONFIG_CPU_ARM926EJS)	=
 tune-$(CONFIG_CPU_ARM946ES)	=
 tune-$(CONFIG_CPU_ARM1136)	=
 tune-$(CONFIG_CPU_ARM1176)	=
-tune-$(CONFIG_CPU_V7A)		=-mtune=generic-armv7-a
+tune-$(CONFIG_CPU_V7A)		=$(call cc-option,-mtune=generic-armv7-a)
 tune-$(CONFIG_CPU_V7R)		=
 tune-$(CONFIG_ARM64)		=
 
