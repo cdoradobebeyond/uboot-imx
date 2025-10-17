@@ -1,0 +1,51 @@
+// SPDX-License-Identifier: GPL-2.0+
+//
+// Device Tree for the ACP i.MX6POS board based on the Freescale SABRE SD
+// reference design.  The platform reuses the base peripherals from the
+// SABRESD but adapts the video, storage and connectivity settings to match
+// the ACP layout.
+
+/dts-v1/;
+
+#include "imx6q.dtsi"
+#include "imx6qdl-sabresd.dtsi"
+
+/ {
+        model = "ACP i.MX6POS";
+        compatible = "acp,imx6pos", "fsl,imx6q";
+};
+
+&ldb {
+        lvds-channel@0 {
+                /* Primary LVDS panel is driven from IPU2 DI0 */
+                crtc = "ipu2-di0";
+        };
+
+        lvds-channel@1 {
+                status = "disabled";
+        };
+};
+
+&mxcfb1 {
+        status = "okay";
+};
+
+&mxcfb2 {
+        status = "disabled";
+};
+
+&mxcfb3 {
+        status = "disabled";
+};
+
+&mxcfb4 {
+        status = "disabled";
+};
+
+&sata {
+        status = "disabled";
+};
+
+&pcie {
+        status = "disabled";
+};

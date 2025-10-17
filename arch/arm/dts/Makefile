@@ -797,6 +797,7 @@ dtb-y += \
 	imx6q-icore.dtb \
 	imx6q-icore-mipi.dtb \
 	imx6q-icore-rqs.dtb \
+	imx6q-acp-imx6pos.dtb \
 	imx6q-kp.dtb \
 	imx6q-logicpd.dtb \
 	imx6q-lxr.dtb \

@@ -1,15 +1,24 @@
 if TARGET_MX6SABRESD || TARGET_MX6SABRESD_COMMON
 
 config SYS_BOARD
-	default "mx6sabresd"
+        default "mx6sabresd"
 
 config SYS_VENDOR
-	default "freescale"
+        default "freescale"
 
 config SYS_CONFIG_NAME
-	default "mx6sabresd"
+        default "mx6sabresd"
 
 config TEXT_BASE
-    default 0x17800000
+	default 0x17800000
+
+config ACP_IMX6POS
+	bool "ACP i.MX6POS extensions"
+	depends on TARGET_MX6SABRESD
+	help
+	  Enable additional build-time tweaks that tailor the Freescale
+	  SABRE SD platform code for the ACP i.MX6POS derivative.  This
+	  flag is selected by the acp_imx6pos_defconfig and should not be
+	  enabled by other boards.
 
 endif
