@@ -46,6 +46,16 @@
 
 static char andr_tmp_str[ANDR_BOOT_ARGS_SIZE + 1];
 
+/*
+ * Provide a default USDHC to /dev/mmcblk mapping for targets that do not
+ * customise it in their board code. Android fastboot consumers rely on this
+ * helper when composing androidboot.* parameters.
+ */
+__weak int mmc_map_to_kernel_blk(int dev_no)
+{
+	return dev_no;
+}
+
 static ulong checksum(const unsigned char *buffer, ulong size)
 {
 	ulong sum = 0;
