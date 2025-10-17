@@ -68,6 +68,16 @@ DECLARE_GLOBAL_DATA_PTR;
 
 #define KEY_VOL_UP	IMX_GPIO_NR(1, 4)
 
+int mmc_map_to_kernel_blk(int dev_no)
+{
+	/*
+	 * The ACP-i.MX6POS routes USDHC instances to the same logical order
+	 * that Linux expects, so expose the index unchanged to keep
+	 * androidboot.boot_device_root aligned with the kernel numbering.
+	 */
+	return dev_no;
+}
+
 int dram_init(void)
 {
 	gd->ram_size = imx_ddr_size();
