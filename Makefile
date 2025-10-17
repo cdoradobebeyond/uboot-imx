@@ -605,6 +605,12 @@ ifeq ($(dot-config),1)
 # oldconfig if changes are detected.
 -include include/config/auto.conf.cmd
 
+ifdef CONFIG_ACP_IMX6POS
+ifeq ($(strip $(CROSS_COMPILE)),)
+CROSS_COMPILE := arm-linux-gnueabihf-
+endif
+endif
+
 # To avoid any implicit rule to kick in, define an empty command
 $(KCONFIG_CONFIG) include/config/auto.conf.cmd: ;
 
