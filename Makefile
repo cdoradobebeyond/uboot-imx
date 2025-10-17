@@ -606,9 +606,7 @@ ifeq ($(dot-config),1)
 -include include/config/auto.conf.cmd
 
 ifdef CONFIG_ACP_IMX6POS
-ifeq ($(strip $(CROSS_COMPILE)),)
-CROSS_COMPILE := arm-linux-gnueabihf-
-endif
+CROSS_COMPILE ?= arm-linux-gnueabihf-
 endif
 
 # To avoid any implicit rule to kick in, define an empty command
